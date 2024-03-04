@@ -216,9 +216,11 @@ class LLMInputOutputAdapter:
                 yield GenerationChunk(
                     text=chunk_obj[output_key],
                     generation_info={
-                        GUARDRAILS_BODY_KEY: chunk_obj.get(GUARDRAILS_BODY_KEY)
-                        if GUARDRAILS_BODY_KEY in chunk_obj
-                        else None,
+                        GUARDRAILS_BODY_KEY: (
+                            chunk_obj.get(GUARDRAILS_BODY_KEY)
+                            if GUARDRAILS_BODY_KEY in chunk_obj
+                            else None
+                        ),
                     },
                 )
 
